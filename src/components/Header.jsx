@@ -5,12 +5,16 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 function Header() {
   useEffect(() => {
     const navLinks = document.querySelectorAll(".nav-link");
-    const navbarCollapse = document.querySelector(".navbar-collapse");
+    const navbarToggler = document.querySelector(".navbar-toggler");
 
     navLinks.forEach((link) => {
       link.addEventListener("click", () => {
-        if (navbarCollapse.classList.contains("show")) {
-          new window.bootstrap.Collapse(navbarCollapse).hide();
+        // Solo simula el click si el botón hamburguesa está visible (modo móvil)
+        if (
+          navbarToggler &&
+          window.getComputedStyle(navbarToggler).display !== "none"
+        ) {
+          navbarToggler.click();
         }
       });
     });
