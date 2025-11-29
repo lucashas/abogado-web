@@ -42,8 +42,18 @@ function Header() {
               </a>
             </li>
             <li className="nav-item">
+              <a className="nav-link" href="#servicios">
+                Servicios
+              </a>
+            </li>
+            <li className="nav-item">
               <a className="nav-link" href="#sobre-mi">
                 Sobre mí
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#publicaciones">
+                Publicaciones
               </a>
             </li>
             <li className="nav-item">
