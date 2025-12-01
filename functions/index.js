@@ -45,7 +45,10 @@ exports.sendContact = functions.https.onRequest((req, res) => {
       await sgMail.send(msg);
       return res.status(200).send({ ok: true });
     } catch (err) {
-      console.error("SendGrid error:", err?.response?.body || err.message || err);
+      console.error(
+        "SendGrid error:",
+        err?.response?.body || err.message || err
+      );
       return res.status(500).send({ ok: false, error: "Failed to send email" });
     }
   });
