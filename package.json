@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node clean-dist.js",
     "lint": "eslint .",
     "preview": "vite preview",
     "audit:lighthouse": "node lighthouse-audit.js",
