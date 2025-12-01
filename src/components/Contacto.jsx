@@ -35,11 +35,29 @@ export default function Contacto() {
       setErrors(newErrors);
       return;
     }
-    setSubmitted(true);
-    setTimeout(() => {
-      setFormData({ nombre: "", email: "", telefono: "", mensaje: "" });
-      setSubmitted(false);
-    }, 3000);
+    // Enviar al endpoint de Firebase Function
+    (async () => {
+      try {
+        const res = await fetch("/api/sendContact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+        const json = await res.json();
+        if (res.ok && json.ok) {
+          setSubmitted(true);
+          setTimeout(() => {
+            setFormData({ nombre: "", email: "", telefono: "", mensaje: "" });
+            setSubmitted(false);
+          }, 3000);
+        } else {
+          const message = json?.error || "Error al enviar el mensaje";
+          setErrors({ form: message });
+        }
+      } catch (err) {
+        setErrors({ form: "Error de red. Intenta más tarde." });
+      }
+    })();
   };
 
   return (
@@ -65,6 +83,9 @@ export default function Contacto() {
 
             {!submitted ? (
               <form onSubmit={handleSubmit}>
+                {errors.form && (
+                  <div className="alert alert-danger">{errors.form}</div>
+                )}
                 <div className="mb-3">
                   <label className="form-label fw-500">Nombre completo</label>
                   <input
@@ -212,10 +233,10 @@ export default function Contacto() {
                     </h6>
                     <p className="mb-0">
                       <a
-                        href="mailto:jgabogado@correo.com"
+                        href="mailto:byron.r.m1985@hotmail.com"
                         style={{ color: "var(--color-accent)" }}
                       >
-                        jgabogado@correo.com
+                        byron.r.m1985@hotmail.com
                       </a>
                     </p>
                     <small style={{ color: "var(--color-muted)" }}>
