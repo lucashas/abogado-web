@@ -1,6 +1,7 @@
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Servicios from "./components/Servicios";
+import Testimonios from "./components/Testimonios";
 import SobreMi from "./components/SobreMi";
 import Publicaciones from "./components/Publicaciones";
 import Contacto from "./components/Contacto";
@@ -12,6 +13,7 @@ export default function App() {
       <Header />
       <Hero />
       <Servicios />
+      <Testimonios />
       <SobreMi />
       <Publicaciones />
       <Contacto />

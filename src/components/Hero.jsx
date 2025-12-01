@@ -1,25 +1,55 @@
 export default function Hero() {
   return (
-    <section
-      id="hero"
-      className="section text-center d-flex flex-column justify-content-center align-items-center bg-dark text-white"
-      style={{ minHeight: "100vh", paddingTop: "70px" }} // padding para que no lo tape el navbar fijo
-    >
-      <h1
-        className="display-4 fw-bold mb-3"
-        style={{ color: "var(--color-accent)" }}
-      >
-        Defensa legal con ética y compromiso
-      </h1>
+    <section id="hero" className="hero-section">
+      {/* Capa semitransparente con gradiente */}
+      <div className="hero-overlay"></div>
 
-      <p className="lead mb-4 hero-parrafo">
-        Protegemos tus derechos con rigor jurídico, experiencia y cercanía. Cada
-        caso merece atención personalizada.
-      </p>
+      {/* Contenido centrado con animación */}
+      <div className="container position-relative fade-in-up text-center">
+        <h1
+          className="display-4 fw-bold"
+          style={{ color: "var(--color-accent)" }}
+        >
+          Defensa legal con ética y compromiso
+        </h1>
 
-      <a href="#contacto" className="btn btn-primary btn-lg accent-button">
-        Agenda tu consulta
-      </a>
+        <p className="hero-subtitle">
+          Protegemos tus derechos con rigor jurídico, experiencia y cercanía
+        </p>
+
+        <p className="lead mb-5 hero-parrafo">
+          Cada caso merece atención personalizada y acompañamiento constante.
+          Somos tu aliado legal de confianza.
+        </p>
+
+        <div className="d-flex gap-3 justify-content-center flex-wrap">
+          <a href="#contacto" className="btn btn-primary btn-lg accent-button">
+            <i className="bi bi-calendar3 me-2"></i>
+            Agenda tu consulta
+          </a>
+          <a
+            href="https://wa.me/593999999999"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-lg"
+            style={{
+              background: "rgba(76, 175, 80, 0.9)",
+              color: "white",
+              border: "none",
+              padding: "14px 32px",
+              fontWeight: "700",
+              fontSize: "1.1rem",
+              borderRadius: "6px",
+              animation: "slideInUp 1s ease-out 0.5s both",
+              boxShadow: "0 4px 15px rgba(76, 175, 80, 0.3)",
+              letterSpacing: "0.5px",
+            }}
+          >
+            <i className="bi bi-whatsapp me-2"></i>
+            Contacta por WhatsApp
+          </a>
+        </div>
+      </div>
     </section>
   );
 }

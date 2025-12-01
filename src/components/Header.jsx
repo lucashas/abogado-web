@@ -6,10 +6,11 @@ function Header() {
   useEffect(() => {
     const navLinks = document.querySelectorAll(".nav-link");
     const navbarToggler = document.querySelector(".navbar-toggler");
+    const navbar = document.querySelector(".navbar");
 
+    // Cerrar menú en móvil al hacer click en un enlace
     navLinks.forEach((link) => {
       link.addEventListener("click", () => {
-        // Solo simula el click si el botón hamburguesa está visible (modo móvil)
         if (
           navbarToggler &&
           window.getComputedStyle(navbarToggler).display !== "none"
@@ -18,10 +19,27 @@ function Header() {
         }
       });
     });
+
+    // Cambiar transparencia al hacer scroll
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add("navbar-scrolled");
+        navbar.classList.remove("navbar-transparent");
+      } else {
+        navbar.classList.add("navbar-transparent");
+        navbar.classList.remove("navbar-scrolled");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    // Ejecutar al cargar para estado inicial
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav className="navbar navbar-expand-lg navbar-dark navbar-transparent fixed-top">
       <div className="container">
         <a className="navbar-brand" href="#hero">
           JG Abogado
@@ -48,6 +66,11 @@ function Header() {
             <li className="nav-item">
               <a className="nav-link" href="#servicios">
                 Servicios
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#testimonios">
+                Testimonios
               </a>
             </li>
             <li className="nav-item">

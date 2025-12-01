@@ -1,24 +1,26 @@
 :root {
-  --color-bg: #0c1a2b;      /* Azul marino sobrio */
-  --color-text: #f5f7fa;    /* Blanco suave */
-  --color-accent: #c9a64c;  /* Dorado elegante */
-  --color-muted: #8aa0b6;   /* Gris-azul para textos secundarios */
+  --color-bg: #0c1a2b; /* Azul marino sobrio */
+  --color-text: #f5f7fa; /* Blanco suave */
+  --color-accent: #c9a64c; /* Dorado elegante */
+  --color-muted: #8aa0b6; /* Gris-azul para textos secundarios */
 }
 
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
   background: var(--color-bg);
   color: var(--color-text);
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-a { 
-  color: var(--color-accent); 
-  text-decoration: none; 
+a {
+  color: var(--color-accent);
+  text-decoration: none;
 }
-a:hover { 
-  text-decoration: underline; 
+a:hover {
+  text-decoration: underline;
 }
 
 .section {
@@ -29,16 +31,38 @@ a:hover {
   background: var(--color-accent);
   color: #0c1a2b;
   border: none;
-  padding: 12px 20px;
-  font-weight: 600;
+  padding: 14px 32px;
+  font-weight: 700;
+  font-size: 1.1rem;
   border-radius: 6px;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 15px rgba(201, 166, 76, 0.3);
+  letter-spacing: 0.5px;
+  display: inline-block;
+  animation: slideInUp 1s ease-out 0.4s both;
 }
 .accent-button:hover {
-  filter: brightness(1.05);
+  filter: brightness(1.15);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(201, 166, 76, 0.5);
+}
+.accent-button:active {
+  transform: translateY(-1px);
+}
+.navbar {
+  position: fixed; /* se mantiene fijo arriba */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* más alto que el hero-overlay */
 }
 .hero-parrafo {
-  background-color: rgba(12, 26, 43, 0.6); /* fondo semitransparente azul marino */
+  background-color: rgba(
+    12,
+    26,
+    43,
+    0.6
+  ); /* fondo semitransparente azul marino */
   padding: 16px 24px;
   border-radius: 8px;
   color: var(--color-text);
@@ -97,7 +121,7 @@ a:hover {
 /* Navbar con fondo al hacer scroll */
 .navbar-scrolled {
   background-color: rgba(12, 26, 43, 0.95) !important; /* azul marino sólido */
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   transition: background-color 0.4s ease, box-shadow 0.4s ease;
 }
 
@@ -118,4 +142,520 @@ a:hover {
 
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='gold' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+/* App.css */
+h1,
+h2,
+h3 {
+  font-family: "Merriweather", serif;
+  color: #0a3d62; /* azul oscuro */
+}
+
+p,
+li,
+span {
+  font-family: "Roboto", sans-serif;
+}
+.card-text {
+  color: #f1f1f1; /* blanco suave para legibilidad */
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.bi-balance-scale::before {
+  content: "\f13e"; /* Este es el código del ícono en la fuente */
+}
+.btn-primary {
+  background-color: var(--color-accent);
+  border: none;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-accent-alt);
+  transform: scale(1.05);
+}
+/* Hero completo */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  /* Preferir AVIF/WebP optimizados en /public/images/optimized/ */
+  background-image: -webkit-image-set(
+    url("/images/optimized/servicios.avif") 1x,
+    url("/images/optimized/servicios.webp") 1x,
+    url("/images/optimized/servicios.png") 1x
+  );
+  background-image: image-set(
+    url("/images/optimized/servicios.avif") type("image/avif") 1x,
+    url("/images/optimized/servicios.webp") type("image/webp") 1x,
+    url("/images/optimized/servicios.png") 1x
+  );
+  /* Fallback por si image-set no es soportado */
+  background-image: url("/images/optimized/servicios.avif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-top: 70px; /* para que no lo tape el navbar */
+  padding-bottom: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Capa oscura con gradiente sobre la imagen */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(12, 26, 43, 0.75) 0%,
+    rgba(12, 26, 43, 0.5) 50%,
+    rgba(201, 166, 76, 0.1) 100%
+  );
+  z-index: 1;
+  animation: overlayFade 1.5s ease-out;
+}
+
+/* Contenido sobre la capa */
+.hero-section .container {
+  z-index: 2;
+  position: relative;
+}
+
+/* Animación suave */
+.fade-in-up {
+  animation: fadeInUp 1.2s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes overlayFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Títulos del hero con animación */
+.hero-section h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  letter-spacing: 1px;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  animation: slideInDown 1s ease-out;
+  margin-bottom: 1rem;
+}
+
+.hero-section .hero-subtitle {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  color: var(--color-muted);
+  margin-bottom: 2rem;
+  animation: slideInUp 1s ease-out 0.2s both;
+  letter-spacing: 0.5px;
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Párrafo con fondo suave */
+.hero-parrafo {
+  background-color: rgba(12, 26, 43, 0.6);
+  padding: 16px 24px;
+  border-radius: 8px;
+  color: var(--color-text);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+  margin: 0 auto;
+}
+.whatsapp-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366; /* verde WhatsApp */
+  color: white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  z-index: 999;
+}
+.whatsapp-button:hover {
+  transform: scale(1.08);
+}
+
+/* Estado oculto suave para el botón */
+.whatsapp-hidden {
+  transform: scale(0.6) translateY(8px) !important;
+  opacity: 0 !important;
+  pointer-events: none;
+}
+
+.footer {
+  background-color: rgba(12, 26, 43, 0.95); /* azul marino sólido */
+  color: var(--color-text);
+  padding: 20px 0;
+  position: relative;
+}
+
+.footer .social-links a {
+  color: var(--color-accent);
+  margin: 0 12px;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.footer .social-links a:hover {
+  color: white;
+}
+
+.footer p {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.footer .credit {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+/* Botón flotante de WhatsApp */
+.whatsapp-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366; /* verde WhatsApp */
+  color: white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  z-index: 999;
+}
+
+.whatsapp-button:hover {
+  transform: scale(1.08);
+}
+
+/* Estado oculto suave para el botón */
+.whatsapp-hidden {
+  transform: scale(0.6) translateY(8px) !important;
+  opacity: 0 !important;
+  pointer-events: none;
+}
+/* Contacto */
+.contacto-box input,
+.contacto-box textarea {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--color-muted);
+  color: var(--color-text);
+}
+
+.contacto-box input:focus,
+.contacto-box textarea:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 6px rgba(201, 166, 76, 0.6);
+}
+
+.confirmation {
+  color: var(--color-accent);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.contacto-box input::placeholder,
+.contacto-box textarea::placeholder {
+  color: var(--color-muted); /* gris-azul para contraste */
+  opacity: 0.8;
+}
+.testimonial-box {
+  background-color: rgba(12, 26, 43, 0.6);
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  color: var(--color-text);
+  font-style: italic;
+  animation: fadeInUp 1s ease-out;
+  transition: transform 0.3s ease;
+}
+
+.testimonial-box:hover {
+  transform: scale(1.02);
+  background-color: rgba(12, 26, 43, 0.6);
+}
+
+.testimonial-box strong {
+  display: block;
+  margin-top: 12px;
+  color: var(--color-accent);
+}
+
+/* Tarjetas de información de contacto */
+.contacto-info-card {
+  background-color: rgba(12, 26, 43, 0.5);
+  border: 1px solid rgba(201, 166, 76, 0.2);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  animation: fadeInUp 1s ease-out;
+}
+
+.contacto-info-card:hover {
+  background-color: rgba(12, 26, 43, 0.7);
+  border-color: rgba(201, 166, 76, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(201, 166, 76, 0.2);
+}
+
+.contacto-info-card h6 {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.contacto-info-card p {
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+/* Validación de formulario */
+.form-control.is-invalid {
+  border-color: #dc3545;
+  background-image: none;
+}
+
+.form-control.is-invalid:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.invalid-feedback {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.form-label {
+  color: var(--color-text);
+  font-size: 0.95rem;
+}
+
+.form-label.fw-500 {
+  font-weight: 500;
+}
+
+/* Responsive: móviles y tablets (no impacta vista escritorio) */
+@media (max-width: 991.98px) {
+  /* Reduce sección padding para tablet y móviles */
+  .section {
+    padding: 40px 0;
+  }
+
+  /* Hero más compacto en pantallas pequeñas/medianas */
+  .hero-section {
+    min-height: 75vh;
+    padding-top: 90px; /* espacio para navbar fijo */
+    padding-bottom: 40px;
+  }
+
+  .hero-parrafo {
+    padding: 12px 18px;
+    max-width: 92%;
+  }
+
+  .hero-section .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  /* Botones: apilan y se hacen full-width en pantallas pequeñas */
+  .hero-section .d-flex {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .accent-button {
+    width: 100%;
+    padding: 12px 0;
+    font-size: 1rem;
+  }
+
+  .btn-lg[style] {
+    width: 100%;
+  }
+
+  /* Contacto: cajas más ajustadas */
+  .contacto-box {
+    padding: 16px;
+    max-width: 100%;
+  }
+
+  .contacto-info-card {
+    padding: 12px;
+  }
+
+  /* Testimonial / tarjetas reducidas */
+  .testimonial-box {
+    padding: 16px;
+  }
+
+  .testimonial-box .display-4 {
+    font-size: 2rem;
+  }
+
+  /* SobreMi: imagen más pequeña y centrada */
+  #sobre-mi img {
+    max-height: 240px;
+    width: auto;
+  }
+
+  /* Footer: reducir paddings en móvil */
+  .footer {
+    padding: 16px 0;
+  }
+
+  /* WhatsApp flotante: menos intrusivo en pantallas pequeñas */
+  .whatsapp-button {
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
+    bottom: 12px;
+    right: 12px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  /* Ajustes específicos móviles (xs) */
+  .section {
+    padding: 28px 0;
+  }
+
+  .hero-section {
+    min-height: 65vh;
+  }
+
+  .hero-section h1 {
+    font-size: clamp(1.5rem, 6vw, 2.2rem);
+  }
+
+  .hero-section .hero-subtitle {
+    font-size: 0.95rem;
+  }
+
+  /* Formularios: inputs más altos para touch */
+  .contacto-box .form-control {
+    padding: 12px 10px;
+    font-size: 0.95rem;
+  }
+
+  .accent-button {
+    padding: 10px 0;
+    font-size: 0.98rem;
+  }
+
+  /* Asegurar que no aparezca scroll horizontal accidental */
+  html,
+  body {
+    overflow-x: hidden;
+  }
+}
+
+/* Preferencias de usuarios que prefieren menos animación */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-up,
+  .testimonial-box,
+  .contacto-info-card,
+  .hero-overlay,
+  .accent-button {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Ajustes específicos para el header en móvil/tablet (mejor touch targets y legibilidad) */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background: rgba(12, 26, 43, 0.98);
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  }
+
+  .navbar-nav {
+    gap: 6px;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 0.75rem 0.8rem;
+    font-size: 1.05rem;
+    display: block;
+    width: 100%;
+    border-radius: 6px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .navbar-nav .nav-link:hover {
+    background: rgba(201, 166, 76, 0.08);
+    color: var(--color-accent);
+  }
+
+  .navbar-brand {
+    font-weight: 700;
+    font-size: 1.05rem;
+  }
+
+  .navbar-toggler {
+    border-color: rgba(201, 166, 76, 0.6);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .navbar-nav .nav-link {
+    padding: 0.9rem 1rem;
+    font-size: 1.05rem;
+  }
 }
