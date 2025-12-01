@@ -182,7 +182,7 @@ export default function Contacto() {
                     >
                       Teléfono
                     </h6>
-                    <p className="mb-0">+593 (0) 999 999 999</p>
+                    <p className="mb-0">+593 (9) 82456462</p>
                     <small style={{ color: "var(--color-muted)" }}>
                       Llamadas y WhatsApp
                     </small>

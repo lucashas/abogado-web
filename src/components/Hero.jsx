@@ -28,7 +28,7 @@ export default function Hero() {
             Agenda tu consulta
           </a>
           <a
-            href="https://wa.me/593999999999"
+            href="https://wa.me/593982456462"
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-lg"

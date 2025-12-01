@@ -42,7 +42,7 @@ function Header() {
     <nav className="navbar navbar-expand-lg navbar-dark navbar-transparent fixed-top">
       <div className="container">
         <a className="navbar-brand" href="#hero">
-          JG Abogado
+          Abogado Byron Robles
         </a>
         <button
           className="navbar-toggler"

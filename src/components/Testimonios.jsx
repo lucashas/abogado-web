@@ -12,8 +12,8 @@ export default function Testimonios() {
         <div className="col-md-4 mb-4">
           <div className="testimonial-box">
             <p>
-              “Gracias al abogado JG resolví un conflicto familiar con rapidez y
-              claridad. Me sentí escuchada.”
+              “Gracias al abogado Byron Robles resolví un conflicto familiar con
+              rapidez y claridad. Me sentí escuchada.”
             </p>
             <strong>- María P.</strong>
           </div>

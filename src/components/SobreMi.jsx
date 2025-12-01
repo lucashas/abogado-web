@@ -8,11 +8,17 @@ export default function SobreMi() {
         {/* Foto del abogado */}
         <div className="col-md-4 mb-4 text-center">
           <picture>
-            <source srcSet="/images/optimized/foto-ab.avif" type="image/avif" />
-            <source srcSet="/images/optimized/foto-ab.webp" type="image/webp" />
+            <source
+              srcSet="/images/optimized/abogadoR.avif"
+              type="image/avif"
+            />
+            <source
+              srcSet="/images/optimized/abogadoR.webp"
+              type="image/webp"
+            />
             <img
-              src="/images/optimized/foto-ab.png"
-              alt="Foto del abogado Juan González"
+              src="/images/optimized/abogadoR-optimized.png"
+              alt="Foto del abogado Byron Patricio Robles Miranda"
               className="img-fluid rounded shadow-sm"
               style={{ maxHeight: "320px", objectFit: "cover" }}
               loading="lazy"
@@ -27,14 +33,14 @@ export default function SobreMi() {
         <div className="col-md-8">
           <div className="testimonial-box">
             <p className="lead mb-3" style={{ color: "var(--color-text)" }}>
-              Soy Juan González, abogado ecuatoriano con más de 10 años de
-              experiencia en derecho civil y predial.
+              Soy Byron Patricio Robles Miranda, abogado ecuatoriano con más de
+              10 años de experiencia en derecho civil y predial.
             </p>
             <p
               className="sobre-mi-parrafo"
               style={{ color: "var(--color-text)" }}
             >
-              Egresado de la Universidad Central del Ecuador, he representado a
+              Egresado de la Universidad Nacional de Loja, he representado a
               personas naturales y empresas en procesos de contratos, litigios
               civiles y asesoría preventiva. Mi compromiso es brindar soluciones
               legales claras, efectivas y con ética profesional.

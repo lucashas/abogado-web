@@ -35,7 +35,7 @@ export default function Footer() {
             <i className="bi bi-facebook"></i>
           </a>
           <a
-            href="https://wa.me/593999999999"
+            href="https://wa.me/593982456462"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -69,7 +69,7 @@ export default function Footer() {
 
       {/* Botón flotante de WhatsApp */}
       <a
-        href="https://wa.me/593XXXXXXXXX" // tu número en formato internacional
+        href="https://wa.me/593982456462" // tu número en formato internacional
         className={`whatsapp-button ${showWhatsApp ? "" : "whatsapp-hidden"}`}
         target="_blank"
         rel="noopener noreferrer"
